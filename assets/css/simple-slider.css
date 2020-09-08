@@ -1,0 +1,71 @@
+.simple-slider .swiper-slide {
+  height: 50rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*width: 20rem!important;*/
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
+  width: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 100px;
+  border-radius: 10rem;
+}
+
+.simple-slider .swiper-button-next:hover, .simple-slider .swiper-button-prev:hover {
+  background-color: #B9D3B625;
+}
+
+@media (max-width:767px) {
+  .simple-slider .swiper-button-next, .simple-slider .swiper-button-prev {
+    margin: 0;
+    width: 25px;
+    /*height: 25px;*/
+  }
+}
+
+@media (max-width:767px) {
+  .simple-slider .swiper-button-next:hover, .simple-slider .swiper-button-prev:hover {
+    background-color: transparent!important;
+  }
+}
+
+@media (max-width:767px) {
+  .simple-slider .swiper-slide {
+    height: 360px;
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 20px;
+}
+
+.slider-names {
+  background-color: gray;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  color: #eeee;
+  font-size: smaller;
+  font-weight: bold;
+  box-shadow: 2px 2px 2px 2px #00000075;
+  margin-left: -5px;
+  margin-right: -5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.selected-slider {
+  background-color: #007bff;
+  color: white;
+  z-index: 15!important;
+  font-size: larger;
+}
+
+.swiper-pagination {
+  /*z-index: 0!important;*/
+}
+

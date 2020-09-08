@@ -1,0 +1,265 @@
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link.active {
+  border-right: initial;
+}
+
+.nav-tabs-left > .nav-item > .nav-link.active:hover {
+  background-color: white!important;
+  /*transform: translate(1px, 0px)!important;*/
+}
+
+.nav-tabs-left > .nav-item > .nav-link.active {
+  background-color: white!important;
+  /*transform: translate(1px, 0px)!important;*/
+  border: 1px solid #dddd!important;
+  border-right-width: 0!important;
+}
+
+.nav-tabs-right > .nav-item > .nav-link {
+  /*border-top: 1px solid transparent;*/
+  /*border-left: 1px solid #88888890!important;*/
+  /*border-bottom: 1px solid transparent;*/
+  /*border-right: 1px solid transparent;*/
+  /*border-bottom-width: 1px!important;*/
+}
+
+.nav-tabs-left > .nav-item > .nav-link {
+  border-top: 1px solid transparent;
+  /*border-right: 1px solid #88888890!important;*/
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid transparent;
+  padding-left: 30px;
+  padding-top: 25px;
+  /*position: relative;*/
+  /*border-radius: 2rem 0 0 2rem;*/
+}
+
+div.tab-pane {
+  display: block;
+  min-height: 90vh;
+  background-color: white;
+  padding-bottom: 250px;
+  padding-right: 100vw;
+}
+
+.nav.nav-tabs-left {
+  position: fixed;
+  display: block;
+  border-bottom-width: 0;
+  border-right: 1px solid #dddd;
+  /*box-shadow: 2px 0 8px #88888835;*/
+  /*clip-path: inset(0px -10px 0px 0px);*/
+}
+
+.nav-tabs-left > .nav-item > .nav-link.active {
+  /*box-shadow: inset 2px 5px 5px #88888835;*/
+  /*clip-path: inset(-10px -5px 0px 0px);*/
+}
+
+.nav.nav-tabs-right {
+  /*float: right;*/
+  /*display: block;*/
+  /*border-bottom-width: 0;*/
+}
+
+.nav.nav-tabs-left > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+
+.nav.nav-tabs > li > a {
+  min-width: 75px;
+  min-height: 75px;
+  /*justify-content: center;*/
+}
+
+.tab-pane p, .tab-pane ol, .tab-pane h1, .tab-pane h2, #contact-us > .row, .tab-pane ul, .tab-pane h2 {
+  margin-right: auto;
+  width: 50vw;
+  font-size: 1rem;
+  padding-top: 2rem;
+  text-align: left;
+  margin-left: 10rem;
+  padding-right: 5rem;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-family: 'Montserrat';
+}
+
+.tabpane div {
+  display: block;
+  /*width: 500px;*/
+  margin: auto;
+}
+
+.nav-tabs > .nav-item > a {
+  color: #428bca!important;
+  width: 175px;
+  font-size: 1rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+.nav-tabs > .nav-item > a:hover, .nav-tabs > .nav-item > a.active {
+  color: black!important;
+}
+
+.nav-tabs > .nav-item > .nav-link.active > a:hover {
+  color: black!important;
+  background-color: #00B0DA50;
+  left: -6px;
+  padding-left: 36px;
+}
+
+.nav-tabs > .nav-item > .nav-link.active:hover {
+  color: black!important;
+  background-color: white!important;
+  left: 0;
+  /*padding-left: 30px;*/
+}
+
+.nav-tabs > .nav-item > a:hover {
+  color: black!important;
+  background-color: #00B0DA50;
+  /*padding-left: 36px;*/
+  border-radius: 0;
+}
+
+#about-main {
+  padding-left: 10%!important;
+}
+
+#top-nav-link-tab, #bottom-nav-link-tab {
+  /*background-color: black;*/
+}
+
+#top-nav-link-tab, #bottom-nav-link-tab {
+  pointer-events: none;
+  cursor: default;
+  min-height: 50px;
+}
+
+.tab-pane h1 {
+  font-size: 2.5rem;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+}
+
+.tab-pane h2 {
+  padding-left: 1.3rem;
+}
+
+.tab-pane h2 {
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  padding-bottom: 0.5rem;
+}
+
+.tab-pane h3 {
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.tab-pane .icon i {
+  font-size: 20rem;
+  position: fixed;
+  top: auto;
+  color: rgba(0,0,0,0.05);
+  z-index: 0;
+  bottom: 30%;
+  pointer-events: none;
+}
+
+#ion1 {
+  left: 40%;
+  bottom: 50%;
+}
+
+#ion3 {
+  /*left: 60%;*/
+}
+
+#ion2, .future-icons, #about-icon, #contact-icon {
+  left: 60%;
+}
+
+#group_photo {
+  position: absolute;
+  top: auto;
+  bottom: 30%;
+  left: 33%;
+  width: 600px;
+  height: auto;
+}
+
+#contact-us > .row {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.footer-basic.fixed-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+#myTab {
+  background-color: #eeee;
+  height: 100vh;
+}
+
+.slide-plot {
+  width: 500px;
+  height: auto;
+}
+
+.slide > div {
+  display: table-row;
+}
+
+.tab-pane > h3 {
+  padding-left: 1.3rem;
+}
+
+ul.indent {
+  padding-left: 3.5rem;
+}
+
+p.indent {
+  padding-left: 2.6rem;
+}
+
+#about-body {
+  background-color: #eeee;
+}
+
+#future-icon1 {
+  transform: translateX(-3rem);
+}
+
+#main-div {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+#about-body, #about-html {
+  /*overflow-y: hidden;*/
+}
+
+.tab-content {
+  /*margin-left: 175px;*/
+}
+
+.tab-content > .active {
+  margin-left: 175px;
+}
+
+#contact-link {
+  color: #fdb515;
+}
+
