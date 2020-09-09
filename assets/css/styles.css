@@ -543,7 +543,7 @@ div.spacer-top {
 
 #main-header-text {
   color: #666666;
-  padding-bottom: 80px;
+  padding-bottom: 100px;
 }
 
 #front-page-body {
@@ -649,8 +649,8 @@ div.spacer-top {
 span.github-button {
   display: inline;
   position: relative;
-  top: -13rem;
-  right: -17rem;
+  top: -8rem;
+  right: -13rem;
   margin: 0;
   padding: 0;
 }
