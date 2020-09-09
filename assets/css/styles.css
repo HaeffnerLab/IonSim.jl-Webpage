@@ -29,13 +29,13 @@ a:hover {
   margin-bottom: 0;
 }
 
-hr.star-dark:after, hr.star-light:after {
+/* hr.star-dark:after, hr.star-light:after {
   content: "\f005";
   font-size: 1.7em;
   background-color: #003262;
   border-radius: 10px;
   color: #fdb515;
-}
+} */
 
 .navbar-toggler {
   color: #fdb515!important;
@@ -46,13 +46,13 @@ button:focus {
   outline: 0px auto -webkit-focus-ring-color;
 }
 
-hr.star-dark {
-  border-radius: 5px;
+hr.main-border {
   border-color: #003262;
   min-width: 100vw!important;
   margin: 0!important;
   position: absolute;
   left: 0;
+  border-width: 4px
 }
 
 .section-heading {
