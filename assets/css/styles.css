@@ -72,7 +72,7 @@ p.body-text {
 }
 
 body {
-  background-color: #eeee;
+  background-color: #fafafa;
   overflow: auto;
   overflow-x: hidden;
   padding: 0;
@@ -219,7 +219,7 @@ div.spacer-top {
 }
 
 #all-spacer {
-  background-color: #eeee;
+  background-color: #fafafa;
 }
 
 #section-nav {
@@ -247,7 +247,7 @@ div.spacer-top {
 }
 
 .card-button {
-  background-color: #eeee;
+  background-color: #fafafa;
   border-width: 0;
   color: #888888;
   box-shadow: inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
@@ -260,7 +260,7 @@ div.spacer-top {
 }
 
 .card-button:focus {
-  background-color: #eeee!important;
+  background-color: #fafafa!important;
   border-width: 0;
   color: #888888;
   box-shadow: none;
@@ -270,7 +270,7 @@ div.spacer-top {
   background-color: #9a9a9a!important;
   border-color: transparent!important;
   outline: none!important;
-  color: #eeee;
+  color: #fafafa;
 }
 
 .spacer {
@@ -311,7 +311,7 @@ div.spacer-top {
 
 .card-box {
   position: relative;
-  color: #eeee;
+  color: #fafafa;
   padding: 20px 10px 40px;
   border-radius: 1em;
   margin-top: 7.55vh;
@@ -387,7 +387,7 @@ div.spacer-top {
 }
 
 .bg-gray {
-  background-color: #eeee;
+  background-color: #fafafa;
 }
 
 .card-box a {
@@ -402,7 +402,7 @@ div.spacer-top {
   display: flex;
   margin: 0 -10rem;
   justify-content: center;
-  padding-top: 8rem;
+  padding-top: 6rem;
 }
 
 .card-col:not(:first-child) > .card-box:hover {
@@ -416,7 +416,7 @@ div.spacer-top {
   width: 100%;
   margin: 0;
   border-radius: 0;
-  background-color: #eeee;
+  background-color: #fafafa;
   color: white;
   min-height: auto;
   transform: none!important;
@@ -435,7 +435,7 @@ div.spacer-top {
 }
 
 .inner hr {
-  border: 0.01rem solid #eeee;
+  border: 0.01rem solid #fafafa;
 }
 
 .card-box:hover hr {
@@ -447,7 +447,7 @@ div.spacer-top {
 }
 
 .card-box .fa-github {
-  color: #eeee;
+  color: #fafafa;
 }
 
 .small-main {
@@ -543,7 +543,8 @@ div.spacer-top {
 
 #main-header-text {
   color: #666666;
-  padding-bottom: 100px;
+  padding-bottom: 3rem;
+  font-size: 1.3rem;
 }
 
 #front-page-body {
@@ -563,7 +564,8 @@ div.spacer-top {
 }
 
 .index-sections .container, .simple-slider {
-  padding: 8rem 0;
+  padding: 6rem 0;
+  padding-bottom: 4rem;
 }
 
 .even-section {
@@ -573,7 +575,7 @@ div.spacer-top {
 
 .odd-section {
   background-color: #888888;
-  color: #eeee;
+  color: #fafafa;
 }
 
 .index-div > p, .index-div > ul {
@@ -649,14 +651,14 @@ div.spacer-top {
 span.github-button {
   display: inline;
   position: relative;
-  top: -8rem;
+  top: -6rem;
   right: -13rem;
   margin: 0;
   padding: 0;
 }
 
 .code-example-container {
-  padding-top: 8rem!important;
+  padding-top: 6rem!important;
   margin-bottom: 0;
   padding-bottom: 0!important;
 }
