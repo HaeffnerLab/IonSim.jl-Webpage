@@ -90,6 +90,7 @@
 <code class="no-line-numbers">
 using IonSim
 
+# This example uses IonSim pre-0.3.0
 # Construct the system
 C = Ca40(["S-1/2", "D-1/2"])
 L1 = Laser(ϕ=π); L2 = Laser()  # note the π-phase between L1/L2
@@ -160,9 +161,12 @@ plt.xlabel("Time (μs)")
                                     <td class="align-middle left-td"><span class="index-code-block index-code-block-left swiper-no-swiping"><pre>
 <code class="no-line-numbers">
 using IonSim
+using QuantumOptics
 
 # Construct the system
-C = Ca40(["S-1/2", "D-1/2"])
+C = Ca40([("S1/2", -1/2), ("D5/2", -1/2)])
+set_sublevel_alias!(C, Dict("S" => ("S1/2", -1/2),
+                            "D" => ("D5/2", -1/2)))
 L = Laser()
 chain = LinearChain(
         ions=[C], com_frequencies=(x=3e6, y=3e6, z=1e6),
@@ -173,15 +177,15 @@ T = Trap(configuration=chain, B=4e-4, Bhat=ẑ, lasers=[L])
 # Set the laser parameters
 L.k = (x̂ + ẑ)/√2
 L.ϵ = (x̂ - ẑ)/√2
-L.Δ = transition_frequency(T, 1, ("S-1/2", "D-1/2"))
-Efield_from_pi_time!(2e-6, T, 1, 1, ("S-1/2", "D-1/2"))
+L.λ = transitionwavelength(C, ("S", "D"), T)
+Efield_from_pi_time!(2e-6, T, 1, 1, ("S", "D"))
 
 # Set the vibrational mode Hilbert space dimension
 mode = T.configuration.vibrational_modes.z[1]
 mode.N = 100
 
 # Construct initial state
-ρi_ion = dm(C["S-1/2"])
+ρi_ion = dm(C["S"])
 ρi_mode = thermalstate(mode, 10)  # thermal state n̄=10
 ρi = ρi_ion ⊗ ρi_mode
 
@@ -189,7 +193,7 @@ mode.N = 100
 h = hamiltonian(T, timescale=1e-6)
 
 # Solve the system
-tout, sol = solve(0:.1:50, ρi, h)
+tout, sol = timeevolution.schroedinger_dynamic(0:.1:50, ρi, h);
 </code></pre></span>
                                     </td>
                                     <td class="align-middle right-td"><span><span class="index-code-block index-code-block-right swiper-no-swiping"><pre>
@@ -198,11 +202,12 @@ import PyPlot
 const plt = PyPlot
 
 plt.plot(
-        tout, expect(ionprojector(T, "D-1/2"), sol),
+        tout, expect(ionprojector(T, "D"), sol),
         label="Excited State Population"
     )
 plt.xlim(tout[1], tout[end])
 plt.ylim(0, 1)
+plt.grid()
 plt.xlabel("Time (μs)")
 plt.legend(loc=1)
 </code></pre></span><img class="slide-plot" src="assets/img/rabi-flop.png" style="text-align: center; display:inline;"></span>
@@ -223,9 +228,12 @@ plt.legend(loc=1)
                                     <td class="align-middle left-td"><span class="index-code-block index-code-block-left swiper-no-swiping"><pre>
 <code class="no-line-numbers">
 using IonSim
+using QuantumOptics
 
 # Construct the system
-C = Ca40(["S-1/2", "D-1/2"])
+C = Ca40([("S1/2", -1/2), ("D5/2", -1/2)])
+set_sublevel_alias!(C, Dict("S" => ("S1/2", -1/2),
+                            "D" => ("D5/2", -1/2)))
 L = Laser()
 chain = LinearChain(
         ions=[C], com_frequencies=(x=3e6, y=3e6, z=1e6),
@@ -236,25 +244,26 @@ T = Trap(configuration=chain, B=2.9e-4, Bhat=ẑ, lasers=[L])
 # Set the laser parameters
 L.k = (x̂ + ẑ)/√2
 L.ϵ = (x̂ - ẑ)/√2
-L.Δ = transition_frequency(T, 1, ("S-1/2", "D-1/2"))
+L.λ = transitionwavelength(C, ("S", "D"), T)
 # Set pi_time to 4 μs
-E = Efield_from_pi_time(4e-6, T, 1, 1, ("S-1/2", "D-1/2"))
+E = Efield_from_pi_time(4e-6, T, 1, 1, ("S", "D"))
 
 # We'll linearly sweep through the laser's frequency over
 # [-125, +125] kHz (detuned from the carrier transition) in a time Tp
-
 Tp = 250
 Δϕ = Tp * 1e-3
 L.ϕ = t -> 2π * (-Δϕ/2 + (Δϕ / Tp) * t) * t
 
 # And also smoothly turn on and off the laser's electric field strength
 Ω = t -> E * sin(π * t/Tp)^2
+L.E = Ω
 
 # Build Hamiltonian
 h = hamiltonian(T, rwa_cutoff=Inf, lamb_dicke_order=1)
 
 # Solve system
-tout, sol = solve(0:.1:Tp, C["S-1/2"] ⊗ mode[0], h)
+mode = T.configuration.vibrational_modes.z[1]
+tout, sol = timeevolution.schroedinger_dynamic(0:.1:Tp, C["S"] ⊗ mode[0], h);
 </code></pre></span>
                                     </td>
                                     <td class="align-middle right-td"><span><span class="index-code-block index-code-block-right swiper-no-swiping"><pre>
@@ -262,20 +271,15 @@ tout, sol = solve(0:.1:Tp, C["S-1/2"] ⊗ mode[0], h)
 import PyPlot
 const plt = PyPlot
 
-plt.plot(
-        tout, expect(ionprojector(T, "D-1/2"), sol),
-        lw=3, color="C3", label="excited state population"
-    )
-plt.plot(
-        tout, @.(L.E(tout) / 2E),
-        ls="--", label="scaled amplitude profile"
-    )
-plt.plot(
-        tout, @.(L.ϕ(tout) / (2π * Δϕ * tout)),
-        ls="--", label="scaled frequency profile"
-    )
+plt.plot(tout, expect(ionprojector(T, "D"), sol),
+        lw=3, color="C3", label="excited state population")
+plt.plot(tout, @.(L.E(tout) / 2E),
+        ls="--", label="scaled amplitude profile")
+plt.plot(tout, @.(L.ϕ(tout) / (2π * Δϕ * tout)),
+        ls="--", label="scaled frequency profile")
 plt.xlim(tout[1], tout[end])
 plt.legend(loc=4)
+plt.grid()
 plt.xlabel("Time (μs)")
 </code></pre></span><img class="slide-plot" src="assets/img/rap.png" style="text-align: center; display:inline;"></span>
                                     </td>
